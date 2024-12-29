@@ -1,20 +1,25 @@
+import cv2
+import numpy as np
 import keyboard
 import pyautogui
+from skimage.metrics import mean_squared_error as mse
 import tkinter as tk
 import time
 
+# 图像路径
 base_image_path = 'fig/base_image.png'
 book_image_path = 'fig/book_btn.png'
-empty_image_path = 'fig/empty_btn.png'
-booked_image_path = 'fig/booked_btn.png'
-washing_image_path = 'fig/washing_btn.png'
+empty_image_path = 'fig/empty_bath.png'
+booked_image_path = 'fig/booked_bath.png'
+washing_image_path = 'fig/washing_bath.png'
 success_booked_image_path = 'fig/success_booked_btn.png'
 
 class BathBookingSystem:
     def __init__(self, nums_windows):
-        pyautogui.FAILSAFE = True
-        pyautogui.PAUSE = 1.0
+        pyautogui.FAILSAFE = True   # 防止鼠标移动到屏幕左上角时退出程序
+        pyautogui.PAUSE = 0.3    # 每次操作后等待x秒
         
+        # 初始化图像路径
         self.base_image_path = base_image_path
         self.book_image_path = book_image_path
         self.empty_image_path = empty_image_path
@@ -28,8 +33,18 @@ class BathBookingSystem:
         self.start_x = None
         self.start_y = None
         
+        # 定位基准图像和预约按钮位置
         self.base_pos = self.locate_base_image()
         self.book_btn_pos = self.locate_btn(self.book_image_path)
+        
+        # 读取浴位的状态图像
+        self.empth_bath_img = cv2.cvtColor(cv2.imread(self.empty_image_path), cv2.COLOR_BGR2RGB)
+        self.booked_bath_img = cv2.cvtColor(cv2.imread(self.booked_image_path), cv2.COLOR_BGR2RGB)
+        self.washing_bath_img = cv2.cvtColor(cv2.imread(self.washing_image_path), cv2.COLOR_BGR2RGB)
+        # 转为numpy数组        
+        self.empth_bath_img = np.array(self.empth_bath_img)
+        self.booked_bath_img = np.array(self.booked_bath_img)
+        self.washing_bath_img = np.array(self.washing_bath_img)
 
     def locate_base_image(self):
         """定位基准图像"""
@@ -64,11 +79,13 @@ class BathBookingSystem:
             exit(1)
 
     def on_mouse_down(self, event):
+        """鼠标按下事件"""
         self.drawing = True
         self.start_x = event.x
         self.start_y = event.y
 
     def on_mouse_move(self, event, canvas):
+        """鼠标移动事件"""
         if self.drawing:
             canvas.delete("rect")
             canvas.create_rectangle(
@@ -77,6 +94,7 @@ class BathBookingSystem:
             )
 
     def on_mouse_up(self, event, canvas, window, idx):
+        """鼠标松开事件"""
         self.drawing = False
         end_x, end_y = event.x, event.y
         
@@ -107,6 +125,27 @@ class BathBookingSystem:
 
         window.mainloop()
 
+    def judge_status(self, x, y, width, height):
+        """判断浴位状态"""
+        x, y, width, height = map(int, (x, y, width, height))
+        snapshot = pyautogui.screenshot(region=(x, y, width, height))
+        # 使用cv2进行RGB图像匹配
+        snapshot = cv2.cvtColor(np.array(snapshot), cv2.COLOR_RGB2BGR)
+        # 将截图调整为相同大小
+        snapshot = cv2.resize(snapshot, (self.empth_bath_img.shape[1], self.empth_bath_img.shape[0]))
+        
+        # 计算MSE作为相似度
+        empty_sim = mse(snapshot, self.empth_bath_img)
+        booked_sim = mse(snapshot, self.booked_bath_img)
+        washing_sim = mse(snapshot, self.washing_bath_img)
+        
+        # print(f"empty_sim: {empty_sim}, booked_sim: {booked_sim}, washing_sim: {washing_sim}")
+        
+        # 如果空闲状态的相似度最小，则返回True
+        if empty_sim == min(empty_sim, booked_sim, washing_sim):
+            return True
+        return False    
+
     def match_and_click(self, location_name):
         """匹配位置并点击"""
         if not self.base_pos or location_name not in self.base_locations.keys():
@@ -115,7 +154,14 @@ class BathBookingSystem:
         location = self.base_locations[location_name]
         target_x = self.base_pos[0] + location['relative_pos'][0]
         target_y = self.base_pos[1] + location['relative_pos'][1]
+        width = location['size'][0]
+        height = location['size'][1]
 
+        # 判断当前浴位的状态，如果是空闲状态则点击预约
+        if not self.judge_status(target_x, target_y, width, height):
+            print(f"浴位 {location_name+1} 状态不是空闲状态")
+            return False
+        
         # 点击中心位置
         click_x = target_x + location['size'][0] // 2
         click_y = target_y + location['size'][1] // 2
