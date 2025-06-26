@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edg/137.0.0.0" version="27.1.6">
   <diagram name="第 1 页" id="FKc3oLcggwEsgFmB60Mv">
-    <mxGraphModel dx="731" dy="509" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="731" dy="1678" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -10,19 +10,22 @@
         <mxCell id="OUxkE_dczDo7Hmg-C99z-1" value="START" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="70" y="170" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="OUxkE_dczDo7Hmg-C99z-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="OUxkE_dczDo7Hmg-C99z-2" target="OUxkE_dczDo7Hmg-C99z-4">
+        <mxCell id="OUxkE_dczDo7Hmg-C99z-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" edge="1" parent="1" source="OUxkE_dczDo7Hmg-C99z-2" target="OUxkE_dczDo7Hmg-C99z-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OUxkE_dczDo7Hmg-C99z-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="OUxkE_dczDo7Hmg-C99z-2" target="OUxkE_dczDo7Hmg-C99z-15">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="OUxkE_dczDo7Hmg-C99z-2" value="plan node" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
           <mxGeometry x="270" y="170" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="OUxkE_dczDo7Hmg-C99z-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="OUxkE_dczDo7Hmg-C99z-4" target="OUxkE_dczDo7Hmg-C99z-6">
+        <mxCell id="OUxkE_dczDo7Hmg-C99z-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" edge="1" parent="1" source="OUxkE_dczDo7Hmg-C99z-4" target="OUxkE_dczDo7Hmg-C99z-6">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="OUxkE_dczDo7Hmg-C99z-13" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="OUxkE_dczDo7Hmg-C99z-4" target="OUxkE_dczDo7Hmg-C99z-9">
+        <mxCell id="OUxkE_dczDo7Hmg-C99z-13" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="OUxkE_dczDo7Hmg-C99z-4" target="OUxkE_dczDo7Hmg-C99z-9">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="OUxkE_dczDo7Hmg-C99z-14" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="OUxkE_dczDo7Hmg-C99z-4" target="OUxkE_dczDo7Hmg-C99z-11">
+        <mxCell id="OUxkE_dczDo7Hmg-C99z-14" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="OUxkE_dczDo7Hmg-C99z-4" target="OUxkE_dczDo7Hmg-C99z-11">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="OUxkE_dczDo7Hmg-C99z-4" value="router" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
@@ -36,6 +39,18 @@
         </mxCell>
         <mxCell id="OUxkE_dczDo7Hmg-C99z-11" value="report node" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
           <mxGeometry x="670" y="310" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OUxkE_dczDo7Hmg-C99z-15" value="END" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="310" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OUxkE_dczDo7Hmg-C99z-19" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Plan Node&lt;/h1&gt;&lt;div&gt;负责生成计划并迭代计划&lt;/div&gt;&lt;div&gt;1. 生成计划，计划可能存在多级结构；&lt;/div&gt;&lt;div&gt;2. 根据执行情况，迭代计划，如果计划全部执行完毕，则结束。&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="270" y="-140" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="OUxkE_dczDo7Hmg-C99z-20" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Router&lt;/h1&gt;&lt;div&gt;1. 接受计划并分解任务&lt;/div&gt;&lt;div&gt;2. 调用合适的 node 完成任务&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="-140" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="OUxkE_dczDo7Hmg-C99z-21" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Agent Collection&lt;/h1&gt;&lt;div&gt;智能体集合，供 router 调用。&lt;/div&gt;&lt;div&gt;每个智能体独立负责一项任务的完成&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="670" y="-140" width="200" height="120" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
