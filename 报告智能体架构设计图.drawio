@@ -52,6 +52,9 @@
         <mxCell id="OUxkE_dczDo7Hmg-C99z-21" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Agent Collection&lt;/h1&gt;&lt;div&gt;智能体集合，供 router 调用。&lt;/div&gt;&lt;div&gt;每个智能体独立负责一项任务的完成&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="670" y="-140" width="200" height="120" as="geometry" />
         </mxCell>
+        <mxCell id="OUxkE_dczDo7Hmg-C99z-24" value="plan node 和 router 均可操作 todo-list" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="80" width="250" height="30" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
